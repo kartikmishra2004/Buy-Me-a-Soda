@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import logo from "@/app/images/logo.png";
+import logo from "@/app/images/logo.svg";
 
 const Footer = () => {
     return (
@@ -9,9 +9,9 @@ const Footer = () => {
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="py-16 flex justify-between items-center flex-col gap-8 lg:flex-row">
                     <a className='flex text-2xl font-bold gap-1 items-center text-gray-300' href="https://pagedone.io/" class="flex justify-center ">
-                        <Image className='w-12' src={logo}></Image><h1>Buy Me a Soda</h1>
+                        <Image className='w-52' src={logo}></Image>
                     </a>
-                    <ul class="text-lg text-center sm:flex items-cente justify-center gap-14 lg:gap-10 xl:gap-14 transition-all duration-500">
+                    <ul class="text-sm text-center sm:flex items-cente justify-center gap-14 lg:gap-10 xl:gap-14 transition-all duration-500">
                         <li ><a href="javascript:;" class="text-gray-400 hover:text-gray-50/75 transition">Pagedone</a></li>
                         <li class="sm:my-0 my-2" ><a href="javascript:;" class="text-gray-400 hover:text-gray-50/75 transition">Products</a></li>
                         <li ><a href="javascript:;" class="text-gray-400 hover:text-gray-50/75 transition">Resources</a></li>
@@ -45,9 +45,9 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
-                <div class="py-7 border-t border-gray-700">
+                <div class="py-7 text-sm border-t border-gray-700">
                     <div class="flex items-center justify-center">
-                        <span class="text-gray-400 ">©<a href="https://pagedone.io/">pagedone</a>2024, All rights reserved.</span>
+                        <span class="text-gray-400 ">&#169;<a href="https://pagedone.io/"> Buy Me a Soda </a>2024, All rights reserved.</span>
                     </div>
                 </div>
             </div>

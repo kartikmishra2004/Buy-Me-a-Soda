@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import logo from "@/app/images/logo.png";
+import logo from "@/app/images/logo.svg";
 
 const Navbar = () => {
     return (
-        <nav className="bg-[#111827]">
+        <nav className="bg-[#111827] z-10">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
                         <a className="flex text-lg font-bold gap-1 text-gray-300" href="/">
-                            <Image className="w-6" priority={true} src={logo} alt="logo" /><h1>Buy Me a Soda</h1>
+                            <Image className="md:w-36 w-[7rem]" priority={true} src={logo} alt="logo" ></Image>
                         </a>
                     </div>
                     <div className="md:flex md:items-center md:gap-12">
@@ -38,7 +38,7 @@ const Navbar = () => {
                         </nav>
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
-                                <a className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-gray-300 shadow" href="#">Login</a>
+                                <a className="rounded-md bg-blue-800 px-5 py-2.5 text-sm font-medium text-gray-300 shadow" href="#">Login</a>
                                 <div className="hidden sm:flex">
                                     <a className="rounded-md bg-[#333333] px-5 py-2.5 text-sm font-medium text-gray-300" href="#">
                                         Register
