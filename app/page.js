@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full md:px-0 px-5 h-[55vh] mt-[5rem] flex flex-col justify-center items-center text-gray-300 gap-2">
+      <div className="w-full md:px-0 px-5 h-[45vh] mt-[5rem] flex flex-col justify-center items-center text-gray-300 gap-2">
         <div className="flex justify-center items-center">
           <h1 className="md:text-5xl text-2xl font-bold">Buy Me a Soda</h1>
           <span>
@@ -31,7 +31,7 @@ export default function Home() {
       <div className="line mx-16 h-[1px] bg-gray-700"></div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-gray-300 pt-10 text-2xl tracking-wide font-semibold">Your Fans can Buy You a Soda!!</h1>
-        <div className="features text-gray-300 w-full flex justify-evenly items-center h-80">
+        <div className="features text-gray-300 w-full flex justify-evenly items-center h-[13rem]">
           <div className="flex flex-col justify-center items-center w-[33.33%]">
             <Image className="md:w-16 w-12 mb-5" src={support} alt="..."></Image>
             <h1 className="text-lg font-medium">Quick Support</h1>
