@@ -29,9 +29,9 @@ const Navbar = () => {
                 <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-[4.5rem] items-center justify-between">
                         <div className="flex-1 md:flex md:items-center md:gap-12">
-                            <a className="flex text-lg font-bold gap-1 text-gray-300" href="/">
+                            <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
                                 <Image className="md:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="md:flex md:items-center md:gap-12">
                             <nav aria-label="Global" className="hidden md:block">
@@ -49,7 +49,7 @@ const Navbar = () => {
                                         <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Services</a>
                                     </li>
                                     <li>
-                                        <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Profile</a>
+                                        <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -94,9 +94,6 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Services</a>
-                                </li>
-                                <li>
-                                    <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Profile</a>
                                 </li>
                             </ul>
                         </nav>

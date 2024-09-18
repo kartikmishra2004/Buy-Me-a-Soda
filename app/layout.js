@@ -26,11 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SessionWrapper>
           <Navbar />
-          <div className="h-[165vh] w-full bg-slate-950">
-            <div className="h-[165vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
-              {children}
-            </div>
-          </div>
+          {children}
           <Footer />
         </SessionWrapper>
       </body>
