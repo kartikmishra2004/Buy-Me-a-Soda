@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import logo from "@/app/images/logo.svg";
 import Link from 'next/link';
@@ -10,10 +10,12 @@ const Login = () => {
 
     const { data: session } = useSession();
 
-    if (session) {
-        const router = useRouter();
-        router.push('/dashboard')
-    }
+    const router = useRouter();
+    useEffect(() => {
+        if (session) {
+            router.push('/dashboard')
+        }
+    });
 
     return (
         <div className="h-screen w-full bg-slate-950">
@@ -23,9 +25,9 @@ const Login = () => {
                         <div className="relative container m-auto px-6">
                             <div className="m-auto lg:w-[25vw]">
                                 <div className="rounded-xl bg-[#111827] shadow-xl">
-                                    <div className="md:p-8 p-4">
+                                    <div className="lg:p-8 p-4">
                                         <div className="space-y-4 flex flex-col justify-center items-center">
-                                            <Image className="md:w-44 w-40" alt="" src={logo} priority={true}></Image>
+                                            <Image className="lg:w-44 w-40" alt="" src={logo} priority={true}></Image>
                                             <h2 className="mb-8 text-xl text-center text-gray-300 font-semibold">Wellcome! Signup/Login to Continue.
                                             </h2>
                                         </div>
