@@ -12,7 +12,7 @@ const Footer = () => {
                     <a className='flex text-2xl font-bold gap-1 justify-center items-center text-gray-300' href="/">
                         <Image className='w-52' alt='' src={logo}></Image>
                     </a>
-                    <ul className="text-sm text-center sm:flex items-cente justify-center gap-14 lg:gap-10 xl:gap-14 transition-all duration-500">
+                    <ul className="md:text-sm text-center sm:flex items-cente justify-center gap-14 lg:gap-10 xl:gap-14 transition-all duration-500">
                         <li ><Link href={'/'} className="cursor-pointer text-gray-400 hover:text-gray-50/75 transition">Home</Link></li>
                         <li className="sm:my-0 my-2" ><a className="cursor-pointer text-gray-400 hover:text-gray-50/75 transition">About</a></li>
                         <li ><a className="cursor-pointer text-gray-400 hover:text-gray-50/75 transition">contact</a></li>

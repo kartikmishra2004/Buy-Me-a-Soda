@@ -74,9 +74,9 @@ const Navbar = () => {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-[4.5rem] items-center justify-between">
                     <div className="flex-1 lg:flex lg:items-center lg:gap-12">
-                        <a className="flex text-lg font-bold gap-1 text-gray-300" href="/">
-                            <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
-                        </a>
+                    <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
+                                <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
+                            </Link>
                     </div>
                     <div className="lg:flex lg:items-center lg:gap-12">
                         <nav aria-label="Global" className="hidden lg:block">
