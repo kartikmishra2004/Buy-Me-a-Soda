@@ -46,10 +46,10 @@ const Username = ({ params }) => {
               <div className="w-full flex flex-col">
                 <label className="font-semibold leading-none text-gray-300">Name</label>
                 <input placeholder='Enter your name' type="text" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
-                <label className="font-semibold mt-2 leading-none text-gray-300">Amount</label>
-                <input placeholder='example: $50' type="number" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
                 <label className="font-semibold mt-2 leading-none text-gray-300">Messsage</label>
                 <textarea placeholder='Enter your message' className="leading-none h-[5rem] resize-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
+                <label className="font-semibold mt-2 leading-none text-gray-300">Amount</label>
+                <input placeholder='example: $50' type="number" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
               </div>
             </div>
             <div className="amountBtn flex w-full">
@@ -58,7 +58,7 @@ const Username = ({ params }) => {
               <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">$50</button>
             </div>
             <div className="paybtn w-full">
-              <button type="button" class="text-white w-full cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center">Pay</button>
+              <button type="button" className="text-white w-full cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center">Pay</button>
             </div>
           </div>
         </div>

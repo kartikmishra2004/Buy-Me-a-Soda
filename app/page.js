@@ -36,7 +36,7 @@ export default function Home() {
           </div>
           <div className="line md:mx-16 mx-8 h-[1px] bg-gray-700"></div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-gray-300 pt-10 md:text-2xl text-lg tracking-wide font-semibold">Your Fans can Buy You a Soda!!</h1>
+            <h1 className="text-gray-300 pt-10 md:text-2xl text-lg tracking-wide font-semibold">Your Fans can Buy you a Soda!!</h1>
             <div className="features text-gray-300 w-full flex flex-col lg:flex-row justify-evenly items-center h-[35rem] lg:h-[13rem]">
               <div className="flex flex-col justify-center items-center lg:px-0 px-10 text-center lg:w-[33.33%]">
                 <Image className="md:w-16 w-12 mb-5" src={support} alt="..."></Image>

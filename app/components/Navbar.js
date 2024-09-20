@@ -7,6 +7,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,6 +23,10 @@ const Navbar = () => {
         };
     }, []);
 
+    const handleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    }
+
     const { data: session, status } = useSession();
     if (session) {
         return (
@@ -33,7 +38,7 @@ const Navbar = () => {
                                 <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
                             </Link>
                         </div>
-                        <div className="lg:flex lg:items-center lg:gap-12">
+                        <div className="lg:flex lg:items-center lg:gap-4">
                             <nav aria-label="Global" className="hidden lg:block">
                                 <ul className="flex items-center gap-6 text-sm">
                                     <li>
@@ -46,10 +51,26 @@ const Navbar = () => {
                                         <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Contact</a>
                                     </li>
                                     <li>
-                                        <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Services</a>
+                                        <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
                                     </li>
                                     <li>
-                                        <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
+                                        <button onClick={handleDropdown} className="text-gray-400 bg-[#111827] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">Wellcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                        </button>
+                                        {showDropdown && <div onBlur={handleDropdown} id="dropdown" className="z-10 absolute mt-1 bg-[#111827] rounded-lg shadow w-44">
+                                            <ul className="py-2 text-sm text-gray-300">
+                                                <li>
+                                                    <Link onClick={handleDropdown} href={'/dashboard'} className="block px-4 py-2 hover:bg-gray-800">Dashboard</Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={handleDropdown} href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-gray-800">Your Page</Link>
+                                                </li>
+                                                <li>
+                                                    <button onClick={() => { handleDropdown(); signOut() }} className="block px-4 py-2 w-full text-start hover:bg-gray-800 text-red-500">Logout</button>
+                                                </li>
+                                            </ul>
+                                        </div>}
                                     </li>
                                 </ul>
                             </nav>
@@ -59,7 +80,7 @@ const Navbar = () => {
                                 </div>
                                 <div className="flex justify-center items-center lg:hidden">
                                     <button className="">
-                                    <Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
+                                        <Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
                                     </button>
                                 </div>
                             </div>
@@ -74,9 +95,9 @@ const Navbar = () => {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-[4.5rem] items-center justify-between">
                     <div className="flex-1 lg:flex lg:items-center lg:gap-12">
-                    <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
-                                <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
-                            </Link>
+                        <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
+                            <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
+                        </Link>
                     </div>
                     <div className="lg:flex lg:items-center lg:gap-12">
                         <nav aria-label="Global" className="hidden lg:block">
@@ -89,9 +110,6 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Contact</a>
-                                </li>
-                                <li>
-                                    <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Services</a>
                                 </li>
                             </ul>
                         </nav>
