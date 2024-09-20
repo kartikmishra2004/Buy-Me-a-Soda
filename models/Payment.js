@@ -6,7 +6,7 @@ const paymentSchema = Schema({
         type: String,
         required: true,
     },
-    to_user: {
+    to_username: {
         type: String,
         required: true,
     },
@@ -36,4 +36,4 @@ const paymentSchema = Schema({
     }
 });
 
-export default mongoose.models.Payments || model("Payment", paymentSchema);;
+export default mongoose.models.Payment || model("Payment", paymentSchema);

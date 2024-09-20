@@ -3,6 +3,7 @@ import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/User";
+import connectDb from "@/db/dbConnection";
 
 export const authOptions = NextAuth({
     providers: [
@@ -17,10 +18,9 @@ export const authOptions = NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-            if (account.provider == 'github') {
+            if (account.provider == 'github' || account.provider == 'google') {
                 // Connect to the database
-                const client = await mongoose.connect(process.env.MONGODB_URI);
-
+                connectDb();
                 // Check if user already exist in the database
                 const currentUser = await User.findOne({ email: email });
                 if (!currentUser) {
