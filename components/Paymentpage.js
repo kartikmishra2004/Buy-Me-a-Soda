@@ -15,7 +15,7 @@ const Paymentpage = ({ username }) => {
     const [payments, setpayments] = useState([]);
 
     useEffect(() => {
-        getData()
+        getData();
     }, []);
 
     const handleChange = (e) => {
@@ -30,16 +30,15 @@ const Paymentpage = ({ username }) => {
         setcurrentUser(u);
         let dbPayments = await fetchpayments(username);
         setpayments(dbPayments);
-        console.log(u, dbPayments)
     }
 
     const pay = async (amount) => {
         // Get the order ID
-        let a = await initiate(amount, username, paymentForm)
+        let a = await initiate(amount, username, paymentForm);
         let orderId = a.id;
 
         var options = {
-            "key": process.env.NEXT_PUBLIC_RAZOR_KEY_ID,
+            "key": currentUser.razorpayid,
             "amount": amount,
             "currency": "INR",
             "name": "Buy Me a Soda",
@@ -62,14 +61,22 @@ const Paymentpage = ({ username }) => {
         var rzp1 = new Razorpay(options)
         rzp1.open();
     }
+
+    const handleChangeAmount = (e) => {
+        setpaymentForm({
+            ...paymentForm,
+            amount: [e.target.value]
+        });
+    }
+
     return (
         <>
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
             <div className="h-[160vh] w-full bg-slate-950">
                 <div className="h-[160vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
-                    <div className="w-full relative mt-[4.5rem] bg-red-600 h-[40vh] flex justify-center items-center">
-                        <Image className='object-cover' priority={true} fill={true} src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/4568292/aff52b4974c24781b7aabf9e76c0fe98/eyJ3IjoxNjAwLCJ3ZSI6MX0%3D/10.png?token-time=1728000000&token-hash=-0JTGTO8u0-AumM7JyBxyqzLWbVUgpRn5YaH9MxS9tk%3D" alt="..." />
-                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' priority width={150} height={150} src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuQ4DUvmbpCVll0HOCsEVdM2zFCqDtS36pAg&s'} alt=''></Image></div>
+                    <div className="w-full relative mt-[4.5rem] h-[40vh] flex justify-center items-center">
+                        <img className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto} alt="..." />
+                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><img className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto} alt=''></img></div>
                     </div>
                     <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-10 h-[30vh]">
                         <h1 className='text-xl font-bold'>
@@ -103,12 +110,12 @@ const Paymentpage = ({ username }) => {
                                 </div>
                             </div>
                             <div className="amountBtn flex w-full">
-                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" onClick={() => { pay(1000) }}>₹10</button>
-                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" onClick={() => { pay(3000) }}>₹30</button>
-                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" onClick={() => { pay(5000) }}>₹50</button>
+                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" value={100} onClick={handleChangeAmount}>₹100</button>
+                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" value={200} onClick={handleChangeAmount}>₹200</button>
+                                <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" value={300} onClick={handleChangeAmount}>₹300</button>
                             </div>
                             <div className="paybtn w-full">
-                                <button onClick={()=> pay(Number.parseInt(paymentForm.amount)*100)} type="button" className="text-white w-full cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center">Pay</button>
+                                <button onClick={()=> pay(Number.parseInt(paymentForm.amount)*100)} type="button" className={`text-white w-full ${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? '' : 'cursor-pointer'} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center disabled:from-[#1f2937] disabled:via-[#1f2937] disabled:to-[#1f2937]`} disabled={!paymentForm.name || !paymentForm.message || !paymentForm.amount}>Pay</button>
                             </div>
                         </div>
                     </div>
