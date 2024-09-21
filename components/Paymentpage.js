@@ -5,6 +5,11 @@ import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { fetchpayments, fetchuser, initiate } from '@/actions/useractions'
 // import { useSession } from 'next-auth/react'
+import { useSearchParams } from 'next/navigation'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation';
+
 
 const Paymentpage = ({ username }) => {
 
@@ -14,8 +19,27 @@ const Paymentpage = ({ username }) => {
     const [currentUser, setcurrentUser] = useState({});
     const [payments, setpayments] = useState([]);
 
+    const SearchParams = useSearchParams();
+    const router = useRouter();
+
     useEffect(() => {
         getData();
+    }, []);
+
+    useEffect(() => {
+        if (SearchParams.get("paymentdone") === "true") {
+            toast.success('Payment has been made!!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            router.push(`/${username}`)
+        }
     }, []);
 
     const handleChange = (e) => {
@@ -71,6 +95,18 @@ const Paymentpage = ({ username }) => {
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
             <div className="h-[160vh] w-full bg-slate-950">
                 <div className="h-[160vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
@@ -92,8 +128,8 @@ const Paymentpage = ({ username }) => {
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>
-                                {payments.length > 0? (payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
-                                    <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount)/100}</span> with a message "{item.message}"</p>
+                                {payments.length > 0 ? (payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
+                                    <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount) / 100}</span> with a message "{item.message}"</p>
                                 </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no contributions to this page!!</h1>}
                             </ul>
                         </div>
@@ -115,7 +151,7 @@ const Paymentpage = ({ username }) => {
                                 <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" value={300} onClick={handleChangeAmount}>₹300</button>
                             </div>
                             <div className="paybtn w-full">
-                                <button onClick={()=> pay(Number.parseInt(paymentForm.amount)*100)} type="button" className={`text-white w-full ${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? '' : 'cursor-pointer'} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center disabled:from-[#1f2937] disabled:via-[#1f2937] disabled:to-[#1f2937]`} disabled={!paymentForm.name || !paymentForm.message || !paymentForm.amount}>Pay</button>
+                                <button onClick={() => pay(Number.parseInt(paymentForm.amount) * 100)} type="button" className={`text-white w-full ${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? '' : 'cursor-pointer'} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center disabled:from-[#1f2937] disabled:via-[#1f2937] disabled:to-[#1f2937]`} disabled={!paymentForm.name || !paymentForm.message || !paymentForm.amount}>Pay</button>
                             </div>
                         </div>
                     </div>
