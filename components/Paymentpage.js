@@ -96,6 +96,7 @@ const Paymentpage = ({ username }) => {
     return (
         <>
             <ToastContainer
+                className='toast-class'
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -118,19 +119,19 @@ const Paymentpage = ({ username }) => {
                         <h1 className='text-xl font-bold'>
                             @{username}
                         </h1>
-                        <p className='  -400 text-sm'>
-                            Creating Animated art for VTT's <br />
-                            13,838 members | 89 posts | $17,670 /release
+                        <p className='text-gray-400 text-sm'>
+                            Lets help {currentUser.name ? currentUser.name : username} to get a soda!<br />
+                            {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount/100, 0)} raised
                         </p>
                     </div>
                     <div className="payment flex justify-center items-center w-full h-[70vh] gap-5">
                         <div className="supporters h-[70vh] w-1/3 p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                             {/* Show list of all the supporters as a leaderboard */}
-                            <h2 className="text-2xl my-4 font-semibold">Supporters</h2>
+                            <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>
                                 {payments.length > 0 ? (payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
                                     <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount) / 100}</span> with a message "{item.message}"</p>
-                                </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no contributions to this page!!</h1>}
+                                </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no payments to this page!!</h1>}
                             </ul>
                         </div>
                         <div className="makePayment justify-center h-[70vh] w-1/3 p-9 gap-3 flex rounded-lg flex-col items-center bg-[#111827]">
@@ -151,7 +152,7 @@ const Paymentpage = ({ username }) => {
                                 <button type="button" className="text-gray-300 bg-[#1f2937] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" value={300} onClick={handleChangeAmount}>₹300</button>
                             </div>
                             <div className="paybtn w-full">
-                                <button onClick={() => pay(Number.parseInt(paymentForm.amount) * 100)} type="button" className={`text-white w-full ${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? '' : 'cursor-pointer'} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center disabled:from-[#1f2937] disabled:via-[#1f2937] disabled:to-[#1f2937]`} disabled={!paymentForm.name || !paymentForm.message || !paymentForm.amount}>Pay</button>
+                                <button onClick={() => pay(Number.parseInt(paymentForm.amount) * 100)} type="button" className={`${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? 'text-gray-500' : 'text-white'} w-full ${(!paymentForm.name || !paymentForm.message || !paymentForm.amount) ? '' : 'cursor-pointer'} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center disabled:from-[#1f2937] disabled:via-[#1f2937] disabled:to-[#1f2937]`} disabled={!paymentForm.name || !paymentForm.message || !paymentForm.amount}>Pay</button>
                             </div>
                         </div>
                     </div>

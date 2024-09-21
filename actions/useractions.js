@@ -8,8 +8,12 @@ export const initiate = async (amount, to_username, paymentform) => {
     // Connect to database
     connectDb();
 
+    // Fetch the secret of the user who is receiving the payment
+    let user = await User.findOne({ username: to_username });
+    const secret = user.razorpaysecret;
+
     // Creating order
-    var instance = new Razorpay({ key_id: process.env.NEXT_PUBLIC_RAZOR_KEY_ID, key_secret: process.env.RAZOR_KEY_SECRET })
+    var instance = new Razorpay({ key_id: user.razorpayid, key_secret: secret });
 
     let x = await instance.orders.create({
         amount: Number.parseInt(amount),
@@ -33,7 +37,7 @@ export const fetchuser = async (username) => {
 export const fetchpayments = async (username) => {
     await connectDb();
     // find all payments sorted by decresing order of amount and flatten objectid
-    let p = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).lean();
+    let p = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).limit(5).lean();
     return p;
 }
 
@@ -45,8 +49,13 @@ export const updateprofile = async (data, oldusername) => {
         let u = await User.findOne({ username: ndata.username });
         if (u) {
             return { error: "Username already exists!!" }
+        } else {
+            await User.updateOne({ email: ndata.email }, ndata);
+            // Now update all the usernames in payments table
+            await Payment.updateMany({to_username: oldusername}, {to_username: ndata.username})
         }
+    } else {
+        await User.updateOne({ email: ndata.email }, ndata);
     }
 
-    await User.updateOne({ email: ndata.email }, ndata)
 }

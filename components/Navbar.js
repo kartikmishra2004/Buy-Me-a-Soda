@@ -54,11 +54,11 @@ const Navbar = () => {
                                         <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
                                     </li>
                                     <li>
-                                        <button onClick={handleDropdown} className="text-gray-400 bg-[#111827] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">Wellcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <button onClick={handleDropdown} className="text-gray-400 bg-[#1f2937] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">Wellcome @{session.user.name} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                                         </svg>
                                         </button>
-                                        {showDropdown && <div onBlur={handleDropdown} id="dropdown" className="z-10 absolute mt-1 bg-[#111827] rounded-lg shadow w-44">
+                                        {showDropdown && <div onBlur={handleDropdown} id="dropdown" className="z-10 absolute mt-1 bg-[#111827] border border-gray-600 rounded-lg shadow w-44">
                                             <ul className="py-2 text-sm text-gray-300">
                                                 <li>
                                                     <Link onClick={handleDropdown} href={'/dashboard'} className="block px-4 py-2 hover:bg-gray-800">Dashboard</Link>

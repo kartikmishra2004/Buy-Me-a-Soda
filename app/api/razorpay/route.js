@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { validatePaymentVerification } from "razorpay/dist/utils/razorpay-utils";
 import Payment from "@/models/Payment";
 import connectDb from "@/db/dbConnection";
+import User from "@/models/User";
 
 export const POST = async (req) => {
     connectDb();
@@ -15,13 +16,17 @@ export const POST = async (req) => {
         return NextResponse.json({ success: false, message: "Order Id not found!!" });
     }
 
+    // Fetch the secret of the user who is receiving the payment
+    let user = await User.findOne({username: payment.to_username});
+    const secret = user.razorpaysecret;
+
     // Verify the payment
     let isPayed = validatePaymentVerification({
         "order_id": body.razorpay_order_id,
         "payment_id": body.razorpay_payment_id
     },
         body.razorpay_signature,
-        process.env.RAZOR_KEY_SECRET
+        secret
     );
 
     if (isPayed) {
