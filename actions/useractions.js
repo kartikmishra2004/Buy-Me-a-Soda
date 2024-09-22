@@ -6,7 +6,7 @@ import User from "@/models/User";
 
 export const initiate = async (amount, to_username, paymentform) => {
     // Connect to database
-    connectDb();
+    await connectDb();
 
     // Fetch the secret of the user who is receiving the payment
     let user = await User.findOne({ username: to_username });
@@ -37,8 +37,15 @@ export const fetchuser = async (username) => {
 export const fetchpayments = async (username) => {
     await connectDb();
     // find all payments sorted by decresing order of amount and flatten objectid
-    let p = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).limit(5).lean();
+    let p = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).lean();
     return p;
+}
+
+export const fetch5payments = async (username) => {
+    await connectDb();
+    // find all payments sorted by decresing order of amount and flatten objectid
+    let p5 = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).limit(5).lean();
+    return p5;
 }
 
 export const updateprofile = async (data, oldusername) => {
@@ -52,7 +59,7 @@ export const updateprofile = async (data, oldusername) => {
         } else {
             await User.updateOne({ email: ndata.email }, ndata);
             // Now update all the usernames in payments table
-            await Payment.updateMany({to_username: oldusername}, {to_username: ndata.username})
+            await Payment.updateMany({ to_username: oldusername }, { to_username: ndata.username })
         }
     } else {
         await User.updateOne({ email: ndata.email }, ndata);

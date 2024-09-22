@@ -3,7 +3,7 @@ import Image from 'next/image'
 import pfp from "@/app/images/pfp.png"
 import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
-import { fetchpayments, fetchuser, initiate } from '@/actions/useractions'
+import { fetch5payments, fetchpayments, fetchuser, initiate } from '@/actions/useractions'
 // import { useSession } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,6 +18,7 @@ const Paymentpage = ({ username }) => {
     const [paymentForm, setpaymentForm] = useState({});
     const [currentUser, setcurrentUser] = useState({});
     const [payments, setpayments] = useState([]);
+    const [top5Payments, setTop5Payments] = useState([]);
 
     const SearchParams = useSearchParams();
     const router = useRouter();
@@ -54,6 +55,9 @@ const Paymentpage = ({ username }) => {
         setcurrentUser(u);
         let dbPayments = await fetchpayments(username);
         setpayments(dbPayments);
+
+        let top5payments = await fetch5payments(username);
+        setTop5Payments(top5payments);
     }
 
     const pay = async (amount) => {
@@ -112,8 +116,8 @@ const Paymentpage = ({ username }) => {
             <div className="h-[160vh] w-full bg-slate-950">
                 <div className="h-[160vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full relative mt-[4.5rem] h-[40vh] flex justify-center items-center">
-                        <img className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto} alt="..." />
-                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><img className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto} alt=''></img></div>
+                        <img className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
+                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><img className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></img></div>
                     </div>
                     <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-10 h-[30vh]">
                         <h1 className='text-xl font-bold'>
@@ -121,7 +125,7 @@ const Paymentpage = ({ username }) => {
                         </h1>
                         <p className='text-gray-400 text-sm'>
                             Lets help {currentUser.name ? currentUser.name : username} to get a soda!<br />
-                            {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount/100, 0)} raised
+                            {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount / 100, 0)} raised
                         </p>
                     </div>
                     <div className="payment flex justify-center items-center w-full h-[70vh] gap-5">
@@ -129,7 +133,7 @@ const Paymentpage = ({ username }) => {
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>
-                                {payments.length > 0 ? (payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
+                                {top5Payments.length > 0 ? (top5Payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
                                     <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount) / 100}</span> with a message "{item.message}"</p>
                                 </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no payments to this page!!</h1>}
                             </ul>

@@ -12,6 +12,7 @@ const Login = () => {
 
     const router = useRouter();
     useEffect(() => {
+        document.title = "Login - Buy Me a Soda";
         if (session) {
             router.push('/dashboard')
         }

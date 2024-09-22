@@ -14,6 +14,7 @@ const page = () => {
     const [form, setForm] = useState({});
 
     useEffect(() => {
+        document.title = "Dashboard - Buy Me a Soda";
         if (!session) {
             router.push('/login')
         } else {

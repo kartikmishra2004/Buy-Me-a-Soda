@@ -5,7 +5,7 @@ import connectDb from "@/db/dbConnection";
 import User from "@/models/User";
 
 export const POST = async (req) => {
-    connectDb();
+    await connectDb();
     let body = await req.formData();
     body = Object.fromEntries(body);
 

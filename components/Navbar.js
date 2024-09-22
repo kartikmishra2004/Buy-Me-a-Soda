@@ -45,10 +45,10 @@ const Navbar = () => {
                                         <Link href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
                                     </li>
                                     <li>
-                                        <a className="text-gray-400 transition hover:text-gray-50/75" href="/">About</a>
+                                        <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
                                     </li>
                                     <li>
-                                        <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Contact</a>
+                                        <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/contact'}>Contact</Link>
                                     </li>
                                     <li>
                                         <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
@@ -106,10 +106,10 @@ const Navbar = () => {
                                     <Link href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
                                 </li>
                                 <li>
-                                    <a className="text-gray-400 transition hover:text-gray-50/75" href="/">About</a>
+                                    <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
                                 </li>
                                 <li>
-                                    <a className="text-gray-400 transition hover:text-gray-50/75" href="/">Contact</a>
+                                    <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/contact'}>Contact</Link>
                                 </li>
                             </ul>
                         </nav>

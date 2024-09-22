@@ -20,7 +20,7 @@ export const authOptions = NextAuth({
         async signIn({ user, account, profile, email, credentials }) {
             if (account.provider == 'github' || account.provider == 'google') {
                 // Connect to the database
-                connectDb();
+                await connectDb();
                 // Check if user already exist in the database
                 const currentUser = await User.findOne({ email: email });
                 if (!currentUser) {
