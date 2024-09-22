@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import pfp from "@/app/images/pfp.png"
+import pfp from "@/public/pfp.png"
 import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { fetch5payments, fetchpayments, fetchuser, initiate } from '@/actions/useractions'
@@ -15,7 +15,11 @@ const Paymentpage = ({ username }) => {
 
     // const { data: session } = useSession();
 
-    const [paymentForm, setpaymentForm] = useState({});
+    const [paymentForm, setpaymentForm] = useState({
+        name: "",
+        message: "",
+        amount: "",
+    });
     const [currentUser, setcurrentUser] = useState({});
     const [payments, setpayments] = useState([]);
     const [top5Payments, setTop5Payments] = useState([]);

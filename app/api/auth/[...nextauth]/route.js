@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -22,7 +21,7 @@ export const authOptions = NextAuth({
                 // Connect to the database
                 await connectDb();
                 // Check if user already exist in the database
-                const currentUser = await User.findOne({ email: email });
+                const currentUser = await User.findOne({ email: user.email });
                 if (!currentUser) {
                     // Create new user
                     const newUser = new User({

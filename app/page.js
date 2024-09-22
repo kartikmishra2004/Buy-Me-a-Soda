@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import soda from "@/app/images/soda.gif";
+import soda from "@/public/soda.gif";
 import { useEffect } from "react";
-import share from "@/app/images/share.gif"
-import money from "@/app/images/money.gif"
-import support from "@/app/images/support.gif"
+import share from "@/public/share.gif"
+import money from "@/public/money.gif"
+import support from "@/public/support.gif"
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from "next/link";
 
@@ -29,7 +29,7 @@ export default function Home() {
               </span>
             </div>
             <p className="md:text-base text-sm text-center md:text-left">A Crowdfunding Platform Where Every Sip Counts – Help Innovators and Dreamers Turn Their Ideas Into Reality.</p>
-            <div className="buttons mt-4">
+            <div className="buttons mt-10">
               <Link href={session ? '/dashboard' : '/login'} type="button" className="text-white bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Get started</Link>
               <Link href={'/about'} type="button" className="text-gray-700 bg-gradient-to-r bg-gray-300 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Read more</Link>
             </div>

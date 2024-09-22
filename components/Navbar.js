@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "@/app/images/logo.svg";
+import logo from "@/public/logo.svg";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react"
 
@@ -51,14 +51,17 @@ const Navbar = () => {
                                         <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/contact'}>Contact</Link>
                                     </li>
                                     <li>
-                                        <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
-                                    </li>
-                                    <li>
-                                        <button onClick={handleDropdown} className="text-gray-400 bg-[#1f2937] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">Wellcome @{session.user.name} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                        </svg>
+                                        <button onClick={handleDropdown} className={`text-gray-400 gap-2 bg-[#1f2937] font-medium ${showDropdown ? 'rounded-t-3xl' : 'rounded-3xl'} text-sm px-3 pr-5 py-2.5 text-center inline-flex items-center`}>
+                                            <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={30} height={30} priority={true} src={session.user.image} alt="pfp" /></span></Link>
+                                            <h1 className="pl-2">
+                                                Wellcome @{session.user.name}
+                                            </h1>
+                                            <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                            </svg>
+
                                         </button>
-                                        {showDropdown && <div onBlur={handleDropdown} id="dropdown" className="z-10 absolute mt-1 bg-[#111827] border border-gray-600 rounded-lg shadow w-44">
+                                        {showDropdown && <div onBlur={handleDropdown} id="dropdown" className="z-10 absolute bg-[#111827] shadow-2xl rounded-b-lg w-[15.35rem]">
                                             <ul className="py-2 text-sm text-gray-300">
                                                 <li>
                                                     <Link onClick={handleDropdown} href={'/dashboard'} className="block px-4 py-2 hover:bg-gray-800">Dashboard</Link>
@@ -67,7 +70,7 @@ const Navbar = () => {
                                                     <Link onClick={handleDropdown} href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-gray-800">Your Page</Link>
                                                 </li>
                                                 <li>
-                                                    <button onClick={() => { handleDropdown(); signOut() }} className="block px-4 py-2 w-full text-start hover:bg-gray-800 text-red-500">Logout</button>
+                                                    <button onClick={() => { handleDropdown(); signOut();  }} className="block px-4 py-2 w-full text-start hover:bg-gray-800 text-red-500">Logout</button>
                                                 </li>
                                             </ul>
                                         </div>}
@@ -75,9 +78,6 @@ const Navbar = () => {
                                 </ul>
                             </nav>
                             <div className="flex items-center gap-4">
-                                <div className="sm:flex sm:gap-4">
-                                    <button onClick={() => signOut()} className="text-white cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2">Logout</button>
-                                </div>
                                 <div className="flex justify-center items-center lg:hidden">
                                     <button className="">
                                         <Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
@@ -100,7 +100,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className="lg:flex lg:items-center lg:gap-12">
-                        <nav aria-label="Global" className="hidden lg:block">
+                        <nav className="hidden lg:block">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
                                     <Link href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>

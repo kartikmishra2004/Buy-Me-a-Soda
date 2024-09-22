@@ -30,23 +30,58 @@ export const initiate = async (amount, to_username, paymentform) => {
 export const fetchuser = async (username) => {
     await connectDb();
     let u = await User.findOne({ username: username }).lean();
+
+    // Convert any non-plain fields to simple values
+    if (u && u._id) {
+        u._id = u._id.toString();
+    }
+
+    if (u && u.createdAt) {
+        u.createdAt = u.createdAt.toISOString();
+    }
+
     return u;
 }
 
 // Fetch payments
 export const fetchpayments = async (username) => {
     await connectDb();
-    // find all payments sorted by decresing order of amount and flatten objectid
-    let p = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).lean();
+
+    // Find all payments sorted by decreasing order of amount
+    let p = await Payment.find({ to_username: username, done: true })
+        .sort({ amount: -1 })
+        .lean();
+
+    // Convert MongoDB ObjectIds and Dates to simple values
+    p.forEach(payment => {
+        if (payment._id) payment._id = payment._id.toString();
+        if (payment.createdAt) payment.createdAt = payment.createdAt.toISOString();
+        if (payment.updatedAt) payment.updatedAt = payment.updatedAt.toISOString();
+    });
+
     return p;
 }
 
+
 export const fetch5payments = async (username) => {
     await connectDb();
-    // find all payments sorted by decresing order of amount and flatten objectid
-    let p5 = await Payment.find({ to_username: username, done: true }).sort({ amount: -1 }).limit(5).lean();
+
+    // Find top 5 payments sorted by decreasing order of amount
+    let p5 = await Payment.find({ to_username: username, done: true })
+        .sort({ amount: -1 })
+        .limit(5)
+        .lean();
+
+    // Convert MongoDB ObjectIds and Dates to simple values
+    p5.forEach(payment => {
+        if (payment._id) payment._id = payment._id.toString();
+        if (payment.createdAt) payment.createdAt = payment.createdAt.toISOString();
+        if (payment.updatedAt) payment.updatedAt = payment.updatedAt.toISOString();
+    });
+
     return p5;
 }
+
 
 export const updateprofile = async (data, oldusername) => {
     await connectDb();
