@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import { fetchuser, updateprofile } from '@/actions/useractions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useCallback } from 'react';
 
 
 const Dashboard = () => {
@@ -21,20 +22,21 @@ const Dashboard = () => {
         coverPhoto: '',
     });
 
+
+    const getData = useCallback(async () => {
+        let u = await fetchuser(session.user.name);
+        setForm(u);
+    }, [session]);
+    
     useEffect(() => {
         document.title = "Dashboard - Buy Me a Soda";
         if (!session) {
-            router.push('/login')
+            router.push('/login');
         } else {
             getData();
         }
-    }, [router, session]);
-
-    const getData = async () => {
-        let u = await fetchuser(session.user.name);
-        setForm(u);
-    }
-
+    }, [router, session, getData]);
+    
     const handleChange = (e) => {
         setForm({
             ...form,

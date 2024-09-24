@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import pfp from "@/public/pfp.png"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Script from 'next/script'
 import { fetch5payments, fetchpayments, fetchuser, initiate } from '@/actions/useractions'
 // import { useSession } from 'next-auth/react';
@@ -27,9 +27,21 @@ const Paymentpage = ({ username }) => {
     const SearchParams = useSearchParams();
     const router = useRouter();
 
+    const getData = useCallback(async () => {
+        let u = await fetchuser(username);
+        setcurrentUser(u);
+
+        let dbPayments = await fetchpayments(username);
+        setpayments(dbPayments);
+
+        let top5payments = await fetch5payments(username);
+        setTop5Payments(top5payments);
+    }, [username]); // Add username as a dependency to memoize the function correctly
+
     useEffect(() => {
         getData();
-    }, []);
+    }, [getData]);
+
 
     useEffect(() => {
         if (SearchParams.get("paymentdone") === "true") {
@@ -54,15 +66,6 @@ const Paymentpage = ({ username }) => {
         });
     }
 
-    const getData = async () => {
-        let u = await fetchuser(username);
-        setcurrentUser(u);
-        let dbPayments = await fetchpayments(username);
-        setpayments(dbPayments);
-
-        let top5payments = await fetch5payments(username);
-        setTop5Payments(top5payments);
-    }
 
     const pay = async (amount) => {
         // Get the order ID
