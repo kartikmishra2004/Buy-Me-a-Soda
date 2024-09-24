@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const page = () => {
+const Dashboard = () => {
 
     const { data: session, update } = useSession();
     const router = useRouter();
@@ -105,4 +105,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Dashboard
