@@ -4,7 +4,7 @@ import pfp from "@/public/pfp.png"
 import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { fetch5payments, fetchpayments, fetchuser, initiate } from '@/actions/useractions'
-// import { useSession } from 'next-auth/react'
+// import { useSession } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,7 +29,7 @@ const Paymentpage = ({ username }) => {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [getData]);
 
     useEffect(() => {
         if (SearchParams.get("paymentdone") === "true") {
@@ -43,9 +43,9 @@ const Paymentpage = ({ username }) => {
                 progress: undefined,
                 theme: "dark",
             });
-            router.push(`/${username}`)
+            router.push(`/${username}`);
         }
-    }, []);
+    }, [SearchParams, router, username]);
 
     const handleChange = (e) => {
         setpaymentForm({
