@@ -141,7 +141,7 @@ const Paymentpage = ({ username }) => {
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>
                                 {top5Payments.length > 0 ? (top5Payments.map((item, index) => (<li key={index} className='my-2 flex justify-center items-center gap-2'>
-                                    <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount) / 100}</span> with a message "{item.message}"</p>
+                                    <Image src={pfp} className='w-8' alt='pfp' priority /><p>{item.name} donated <span className='font-bold'>₹{Number.parseInt(item.amount) / 100}</span> with a message &quot;{item.message}&quot;</p>
                                 </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no payments to this page!!</h1>}
                             </ul>
                         </div>
