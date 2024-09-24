@@ -97,8 +97,8 @@ const Dashboard = () => {
                                 <input autoComplete="off" name='profilePhoto' value={form.profilePhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="profilephoto" type="text" />
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="coverphoto">Enter cover photo URL</label>
                                 <input autoComplete="off" name='coverPhoto' value={form.coverPhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="coverphoto" type="text" />
-                                <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Business title</label>
-                                <input autoComplete="off" name='businessAbout' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Enter your business Title'/>
+                                <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessTitle">Business title</label>
+                                <input autoComplete="off" name='businessTitle' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessTitle" type="text" placeholder='Enter your business Title'/>
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Describe your business</label>
                                 <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessTitle} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)'/>
                                 <div className="paybtn w-full mt-5">
