@@ -52,7 +52,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <button onClick={handleDropdown} className={`text-gray-400 gap-2 justify-between flex bg-[#1f2937] font-medium rounded-lg rounded-l-3xl text-sm px-3 pr-5 py-2.5 text-center items-center`}>
-                                            <Link href={'/dashboard'} className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></Link>
+                                            <div className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></div>
                                             <h1 className="pl-2 flex w-full">
                                                 Wellcome @{session.user.name}
                                             </h1>

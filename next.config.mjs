@@ -14,7 +14,7 @@ const nextConfig = {
         },
         {
             protocol: 'https',
-            hostname: 'c10.patreonusercontent.com',
+            hostname: 'plus.unsplash.com',
             port: '',
         },
         {
@@ -25,6 +25,11 @@ const nextConfig = {
         {
             protocol: 'https',
             hostname: 'www.svgrepo.com',
+            port: '',
+        },
+        {
+            protocol: 'https',
+            hostname: 'res.cloudinary.com',
             port: '',
         },
     ],

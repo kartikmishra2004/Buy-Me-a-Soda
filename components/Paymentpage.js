@@ -123,8 +123,8 @@ const Paymentpage = ({ username }) => {
             <div className="h-[160vh] w-full bg-slate-950">
                 <div className="h-[160vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full relative mt-[4.5rem] h-[40vh] flex justify-center items-center">
-                        <img className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
-                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><img className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></img></div>
+                        <Image fill className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
+                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></Image></div>
                     </div>
                     <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-10 h-[30vh]">
                         <h1 className='text-xl font-bold'>
