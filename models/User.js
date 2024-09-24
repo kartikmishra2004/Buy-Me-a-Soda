@@ -25,6 +25,9 @@ const userSchema = Schema({
     razorpaysecret: {
         type: String,
     },
+    businessTitle: {
+        type: String,
+    },
     businessAbout: {
         type: String,
     },

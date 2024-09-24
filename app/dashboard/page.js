@@ -21,6 +21,7 @@ const Dashboard = () => {
         profilePhoto: '',
         coverPhoto: '',
         businessAbout: '',
+        businessTitle: '',
     });
 
 
@@ -75,8 +76,8 @@ const Dashboard = () => {
                 pauseOnHover
                 theme="dark"
             />
-            <div className="h-[145vh] w-full bg-slate-950">
-                <div className="h-[145vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
+            <div className="h-[150vh] w-full bg-slate-950">
+                <div className="h-[150vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full h-80 flex flex-col items-center mt-[7rem] text-gray-300">
                         <h1 className='md:text-2xl pb-10 text-lg tracking-wide font-semibold'>Wellcome to your Dashboard</h1>
                         <div className="flex w-[40vw] mt-2">
@@ -96,6 +97,8 @@ const Dashboard = () => {
                                 <input autoComplete="off" name='profilePhoto' value={form.profilePhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="profilephoto" type="text" />
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="coverphoto">Enter cover photo URL</label>
                                 <input autoComplete="off" name='coverPhoto' value={form.coverPhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="coverphoto" type="text" />
+                                <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Business title</label>
+                                <input autoComplete="off" name='businessAbout' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Enter your business Title'/>
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Describe your business</label>
                                 <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessAbout} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)'/>
                                 <div className="paybtn w-full mt-5">

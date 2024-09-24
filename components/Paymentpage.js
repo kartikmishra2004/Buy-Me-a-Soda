@@ -138,7 +138,7 @@ const Paymentpage = ({ username }) => {
                     <div className='w-full flex items-center flex-col h-[40vh]'>
                         <h1 className='text-3xl font-semibold text-gray-300 mb-10'>About Our Business</h1>
                         <h1 className='text-xl font-semibold text-gray-300'>Eco-Friendly Packaging Solutionss</h1>
-                        <p className='w-[50vw] text-center text-gray-400 mt-2'>With the rise in demand for sustainability, this business provides eco-friendly, biodegradable, and reusable packaging for e-commerce, food delivery, and retail sectors. Offering sustainable alternatives like compostable containers, recyclable mailers, and reusable bags, it helps businesses reduce their carbon footprint. Revenue comes from B2B partnerships, subscription services, and customized branding options, allowing companies to transition to greener practices while enhancing their brand image.</p>
+                        <p className='w-[50vw] text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
                     <div className="payment flex justify-center items-center w-full h-[70vh] gap-5">
                         <div className="supporters h-[70vh] w-1/3 p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
