@@ -100,7 +100,7 @@ const Dashboard = () => {
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessTitle">Business title</label>
                                 <input autoComplete="off" name='businessTitle' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessTitle" type="text" placeholder='Enter your business Title'/>
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Describe your business</label>
-                                <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessTitle} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)'/>
+                                <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessAbout} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)'/>
                                 <div className="paybtn w-full mt-5">
                                     <button type="submit" className="text-white w-full cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center">Save</button>
                                 </div>
