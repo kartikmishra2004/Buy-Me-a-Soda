@@ -120,7 +120,7 @@ const Paymentpage = ({ username }) => {
                 theme="dark"
             />
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
-            <div className="h-[235vh] w-full bg-slate-950">
+            <div className="lg:h-[235vh] h-[260vh] w-full bg-slate-950">
                 <div className="h-[235vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full relative mt-[4.5rem] lg:h-[40vh] h-[20vh] flex justify-center items-center">
                         <Image fill className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
@@ -135,12 +135,12 @@ const Paymentpage = ({ username }) => {
                             {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount / 100, 0)} raised
                         </p>
                     </div>
-                    <div className='w-full flex items-center flex-col lg:h-[45vh] h-[55vh]'>
+                    <div className='w-full flex items-center flex-col lg:h-[45vh] h-[60vh]'>
                         <h1 className='lg:text-3xl text-[1.4rem] font-semibold text-gray-300 mb-10'>About Our Business</h1>
                         <h1 className='lg:text-xl text-[1rem] font-semibold text-gray-300'>{currentUser.businessTitle}</h1>
                         <p className='lg:w-[50vw] w-[85%] leading-[20px] lg:leading-none text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
-                    <div className="payment flex flex-col lg:flex-row justify-center items-center w-full h-[95vh] gap-5">
+                    <div className="payment flex flex-col lg:flex-row justify-center items-center w-full lg:h-[95vh] h-[130vh] gap-5">
                         <div className="supporters h-[85vh] lg:w-[40%] w-[90%] lg:p-9 p-5 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
