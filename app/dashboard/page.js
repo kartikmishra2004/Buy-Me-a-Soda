@@ -76,8 +76,8 @@ const Dashboard = () => {
                 pauseOnHover
                 theme="dark"
             />
-            <div className="h-[165vh] w-full bg-slate-950">
-                <div className="h-[165vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
+            <div className="h-[175vh] w-full bg-slate-950">
+                <div className="h-[175vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full h-80 flex flex-col items-center mt-[7rem] text-gray-300">
                         <h1 className='lg:text-2xl pb-10 text-lg tracking-wide font-semibold'>Wellcome to your Dashboard</h1>
                         <div className="flex w-[40vw] mt-2">

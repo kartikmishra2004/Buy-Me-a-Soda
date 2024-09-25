@@ -120,13 +120,13 @@ const Paymentpage = ({ username }) => {
                 theme="dark"
             />
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
-            <div className="h-[200vh] w-full bg-slate-950">
-                <div className="h-[200vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
+            <div className="h-[235vh] w-full bg-slate-950">
+                <div className="h-[235vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full relative mt-[4.5rem] h-[40vh] flex justify-center items-center">
                         <Image fill className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
                         <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></Image></div>
                     </div>
-                    <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-10 h-[30vh]">
+                    <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-14 h-[30vh]">
                         <h1 className='text-xl font-bold'>
                             @{username}
                         </h1>
@@ -135,12 +135,12 @@ const Paymentpage = ({ username }) => {
                             {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount / 100, 0)} raised
                         </p>
                     </div>
-                    <div className='w-full flex items-center flex-col h-[40vh]'>
+                    <div className='w-full flex items-center flex-col h-[45vh]'>
                         <h1 className='text-3xl font-semibold text-gray-300 mb-10'>About Our Business</h1>
                         <h1 className='text-xl font-semibold text-gray-300'>{currentUser.businessTitle}</h1>
                         <p className='w-[50vw] text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
-                    <div className="payment flex justify-center items-center w-full h-[70vh] gap-5">
+                    <div className="payment flex justify-center items-center w-full h-[95vh] gap-5">
                         <div className="supporters h-[76vh] w-[40%] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
