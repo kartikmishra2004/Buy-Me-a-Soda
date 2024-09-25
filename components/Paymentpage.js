@@ -150,7 +150,7 @@ const Paymentpage = ({ username }) => {
                                 </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no payments to this page!!</h1>}
                             </ul>
                         </div>
-                        <div className="makePayment justify-center h-[76vh] w-[40%] p-9 gap-3 flex rounded-lg flex-col items-center bg-[#111827]">
+                        <div className="makePayment justify-center h-[85vh] w-[40%] p-9 gap-3 flex rounded-lg flex-col items-center bg-[#111827]">
                             <h2 className="text-xl mb-4 font-semibold">Support {username}</h2>
                             <p className='text-red-700'>{!currentUser.razorpayid || !currentUser.razorpaysecret ? 'Sorry! You cannot support this user because they have not provided their payment details.' : ''}</p>
                             <div className="flex w-full items-end mt-2">
