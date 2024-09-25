@@ -36,7 +36,7 @@ const Navbar = () => {
                 <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-[4.5rem] items-center justify-between">
                         <div className="flex-1 lg:flex lg:items-center lg:gap-12">
-                            <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
+                            <Link href={'/'} className="flex w-max text-lg font-bold gap-1 text-gray-300">
                                 <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
                             </Link>
                         </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
                             </nav>
                             <div className="flex items-center gap-4">
                                 <div className="flex justify-center items-center lg:hidden">
-                                    <button className="">
+                                    <button onClick={() => { setMobilenav(!mobilenav) }} className="">
                                         <Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
                                     </button>
                                 </div>
@@ -85,6 +85,25 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+                <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
+                    <ul className="flex items-center gap-6 text-sm flex-col justify-center">
+                        <li>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/dashboard'} className="block px-4 py-2 hover:bg-gray-800">Dashboard</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-gray-800">Your Page</Link>
+                        </li>
+                        <li>
+                            <button onClick={() => { handleDropdown(); signOut(); }} className="block px-4 py-2 w-full text-start hover:bg-gray-800 text-red-500">Logout</button>
+                        </li>
+                    </ul>
+                </nav>
             </nav>
         )
     }
@@ -93,7 +112,7 @@ const Navbar = () => {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-[4.5rem] items-center justify-between">
                     <div className="flex-1 lg:flex lg:items-center lg:gap-12">
-                        <Link href={'/'} className="flex text-lg font-bold gap-1 text-gray-300">
+                        <Link href={'/'} className="flex w-max text-lg font-bold gap-1 text-gray-300">
                             <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
                         </Link>
                     </div>
@@ -113,7 +132,7 @@ const Navbar = () => {
                                 <Link href={"/login"} className="text-white cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2">Login</Link>
                             </div>
                             <div className="block lg:hidden">
-                                <button onClick={() => {setMobilenav(!mobilenav)}} className="rounded p-2 text-gray-600 transition hover:text-gray-600/75">
+                                <button onClick={() => { setMobilenav(!mobilenav) }} className="rounded p-2 text-gray-600 transition hover:text-gray-600/75">
                                     <Image className="lg:w-36 w-7" priority={true} src={dots} alt="logo" />
                                 </button>
                             </div>
@@ -121,16 +140,16 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-                <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
-                    <ul className="flex items-center gap-6 text-sm flex-col justify-center">
-                        <li>
-                            <Link href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
-                        </li>
-                        <li>
-                            <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
-                        </li>
-                    </ul>
-                </nav>
+            <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
+                <ul className="flex items-center gap-6 text-sm flex-col justify-center">
+                    <li>
+                        <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
+                    </li>
+                    <li>
+                        <Link onClick={() => { setMobilenav(!mobilenav) }} className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
+                    </li>
+                </ul>
+            </nav>
         </nav>
     );
 }
