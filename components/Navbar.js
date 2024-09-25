@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react";
+import dots from "@/public/dots.png"
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [mobilenav, setMobilenav] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -111,16 +113,24 @@ const Navbar = () => {
                                 <Link href={"/login"} className="text-white cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2">Login</Link>
                             </div>
                             <div className="block lg:hidden">
-                                <button className="rounded bg-gray-300 p-2 text-gray-600 transition hover:text-gray-600/75">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
+                                <button onClick={() => {setMobilenav(!mobilenav)}} className="rounded p-2 text-gray-600 transition hover:text-gray-600/75">
+                                    <Image className="lg:w-36 w-7" priority={true} src={dots} alt="logo" />
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+                <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
+                    <ul className="flex items-center gap-6 text-sm flex-col justify-center">
+                        <li>
+                            <Link href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
+                        </li>
+                        <li>
+                            <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
+                        </li>
+                    </ul>
+                </nav>
         </nav>
     );
 }
