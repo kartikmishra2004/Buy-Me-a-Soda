@@ -94,10 +94,10 @@ const Navbar = () => {
                             <Link onClick={() => { setMobilenav(!mobilenav) }} className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
                         </li>
                         <li>
-                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/dashboard'} className="block px-4 py-2 hover:bg-gray-800">Dashboard</Link>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/dashboard'} className="block text-gray-400 px-4 py-2 hover:bg-gray-800">Dashboard</Link>
                         </li>
                         <li>
-                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-gray-800">Your Page</Link>
+                            <Link onClick={() => { setMobilenav(!mobilenav) }} href={`/${session.user.name}`} className="block text-gray-400 px-4 py-2 hover:bg-gray-800">Your Page</Link>
                         </li>
                         <li>
                             <button onClick={() => { handleDropdown(); signOut(); }} className="block px-4 py-2 w-full text-start hover:bg-gray-800 text-red-500">Logout</button>

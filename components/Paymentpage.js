@@ -122,7 +122,7 @@ const Paymentpage = ({ username }) => {
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
             <div className="h-[235vh] w-full bg-slate-950">
                 <div className="h-[235vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
-                    <div className="w-full relative mt-[4.5rem] h-[40vh] flex justify-center items-center">
+                    <div className="w-full relative mt-[4.5rem] lg:h-[40vh] h-[20vh] flex justify-center items-center">
                         <Image fill className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
                         <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></Image></div>
                     </div>
@@ -135,13 +135,13 @@ const Paymentpage = ({ username }) => {
                             {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount / 100, 0)} raised
                         </p>
                     </div>
-                    <div className='w-full flex items-center flex-col h-[45vh]'>
-                        <h1 className='text-3xl font-semibold text-gray-300 mb-10'>About Our Business</h1>
-                        <h1 className='text-xl font-semibold text-gray-300'>{currentUser.businessTitle}</h1>
-                        <p className='w-[50vw] text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
+                    <div className='w-full flex items-center flex-col lg:h-[45vh] h-[55vh]'>
+                        <h1 className='lg:text-3xl text-[1.4rem] font-semibold text-gray-300 mb-10'>About Our Business</h1>
+                        <h1 className='lg:text-xl text-[1rem] font-semibold text-gray-300'>{currentUser.businessTitle}</h1>
+                        <p className='lg:w-[50vw] w-[85%] leading-[20px] lg:leading-none text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
-                    <div className="payment flex justify-center items-center w-full h-[95vh] gap-5">
-                        <div className="supporters h-[85vh] w-[40%] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
+                    <div className="payment flex flex-col lg:flex-row justify-center items-center w-full h-[95vh] gap-5">
+                        <div className="supporters h-[85vh] lg:w-[40%] w-[90%] lg:p-9 p-5 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>
@@ -150,7 +150,7 @@ const Paymentpage = ({ username }) => {
                                 </li>))) : <h1 className='my-2 flex justify-center items-center gap-2'>There are no payments to this page!!</h1>}
                             </ul>
                         </div>
-                        <div className="makePayment justify-center h-[85vh] w-[40%] p-9 gap-3 flex rounded-lg flex-col items-center bg-[#111827]">
+                        <div className="makePayment justify-center h-[85vh] lg:w-[40%] w-[90%] lg:p-9 p-5 gap-3 flex rounded-lg flex-col items-center bg-[#111827]">
                             <h2 className="text-xl mb-4 font-semibold">Support {username}</h2>
                             <p className='text-red-700'>{!currentUser.razorpayid || !currentUser.razorpaysecret ? 'Sorry! You cannot support this user because they have not provided their payment details.' : ''}</p>
                             <div className="flex w-full items-end mt-2">
