@@ -76,11 +76,11 @@ const Dashboard = () => {
                 pauseOnHover
                 theme="dark"
             />
-            <div className="h-[175vh] w-full bg-slate-950">
-                <div className="h-[175vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
+            <div className="lg:h-[175vh] h-[150vh] w-full bg-slate-950">
+                <div className="lg:h-[175vh] h-[150vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full h-80 flex flex-col items-center mt-[7rem] text-gray-300">
                         <h1 className='lg:text-2xl pb-10 text-lg tracking-wide font-semibold'>Wellcome to your Dashboard</h1>
-                        <div className="flex w-[40vw] mt-2">
+                        <div className="flex lg:w-[40vw] w-[85%] mt-2">
                             <form className="w-full flex flex-col" action={handleSubmit}>
                                 <label htmlFor='name' className="font-semibold leading-none text-gray-300">Name</label>
                                 <input autoComplete="off" id='name' name='name' value={form.name} onChange={handleChange} placeholder='Enter your name' type="text" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />

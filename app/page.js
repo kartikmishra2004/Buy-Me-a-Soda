@@ -29,8 +29,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="lg:h-[270vh] h-[360vh] w-full bg-slate-950">
-        <div className="lg:h-[270vh] h-[360vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
+      <div className="lg:h-[280vh] h-[290vh] w-full bg-slate-950">
+        <div className="lg:h-[280vh] h-[290vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
           <div className="w-full lg:px-0 px-5 h-[40vh] lg:h-[45vh] mt-[5rem] flex flex-col justify-center items-center text-gray-300 gap-2">
             <div className="flex justify-center items-center">
               <h1 className="lg:text-5xl text-3xl font-bold">Buy Me a Soda</h1>
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <div className="line lg:mx-16 mx-8 h-[1px] bg-gray-700"></div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-gray-300 pt-10 lg:text-2xl text-lg tracking-wide font-semibold">Entrepreneurs You Can Support</h1>
+            <h1 className="text-gray-300 pt-10 mb-6 lg:mb-0 lg:text-2xl text-lg tracking-wide font-semibold">Entrepreneurs You Can Support</h1>
             <div className="features text-gray-300 w-full flex flex-col lg:flex-row justify-evenly items-center h-[35rem] lg:h-[35rem]">
               <div className="entrepreneurs h-[70vh] lg:w-[60vw] w-[95vw] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                 <h2 className="text-2xl my-4 font-semibold">Top Entrepreneurs</h2>
@@ -82,7 +82,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="line lg:mx-16 mx-8 h-[1px] bg-gray-700"></div>
+          <div className="line lg:mx-16 mt-14 mx-8 h-[1px] bg-gray-700"></div>
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-gray-300 pt-10 lg:text-2xl text-lg tracking-wide font-semibold">Your Fans can Buy you a Soda!!</h1>
             <div className="features text-gray-300 w-full flex flex-col lg:flex-row justify-evenly items-center h-[35rem] lg:h-[20rem]">

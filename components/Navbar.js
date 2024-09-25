@@ -86,7 +86,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
-                    <ul className="flex items-center gap-6 text-sm flex-col justify-center">
+                    <ul className="flex items-center gap-6 lg:text-sm flex-col justify-center">
                         <li>
                             <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
                         </li>
@@ -141,7 +141,7 @@ const Navbar = () => {
                 </div>
             </div>
             <nav className={`${mobilenav ? 'flex' : 'hidden'} lg:hidden justify-center w-full py-10 bg-[#111827]`}>
-                <ul className="flex items-center gap-6 text-sm flex-col justify-center">
+                <ul className="flex items-center gap-6 lg:text-sm flex-col justify-center">
                     <li>
                         <Link onClick={() => { setMobilenav(!mobilenav) }} href={'/'} className="text-gray-400 transition hover:text-gray-50/75">Home</Link>
                     </li>
