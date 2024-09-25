@@ -141,7 +141,7 @@ const Paymentpage = ({ username }) => {
                         <p className='w-[50vw] text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
                     <div className="payment flex justify-center items-center w-full h-[95vh] gap-5">
-                        <div className="supporters h-[76vh] w-[40%] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
+                        <div className="supporters h-[85vh] w-[40%] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                             {/* Show list of all the supporters as a leaderboard */}
                             <h2 className="text-2xl my-4 font-semibold">Top Supporters</h2>
                             <ul className='flex flex-col gap-2 items-start'>

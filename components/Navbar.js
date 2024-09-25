@@ -48,9 +48,6 @@ const Navbar = () => {
                                         <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
                                     </li>
                                     <li>
-                                        <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/contact'}>Contact</Link>
-                                    </li>
-                                    <li>
                                         <button onClick={handleDropdown} className={`text-gray-400 gap-2 justify-between flex bg-[#1f2937] font-medium rounded-lg rounded-l-3xl text-sm px-3 pr-5 py-2.5 text-center items-center`}>
                                             <div className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></div>
                                             <h1 className="pl-2 flex w-full">
@@ -106,9 +103,6 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/about'}>About</Link>
-                                </li>
-                                <li>
-                                    <Link className="text-gray-400 transition hover:text-gray-50/75" href={'/contact'}>Contact</Link>
                                 </li>
                             </ul>
                         </nav>

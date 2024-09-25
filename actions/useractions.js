@@ -179,5 +179,22 @@ export const fetchalluser = async () => {
     await connectDb();
 
     const users = await User.find();
-    return users;
-}
+    
+    // Convert necessary fields to simple types
+    const serializedUsers = users.map(user => ({
+        _id: user._id.toString(),
+        username: user.username,
+        email: user.email,
+        createdAt: user.createdAt ? user.createdAt.toISOString() : null,
+        updatedAt: user.updatedAt ? user.updatedAt.toISOString() : null,
+        businessAbout: user.businessAbout,
+        businessTitle: user.businessTitle,
+        coverPhoto: user.coverPhoto,
+        name: user.name,
+        profilePhoto: user.profilePhoto,
+        razorpayid: user.razorpayid,
+        razorpaysecret: user.razorpaysecret
+    }));
+    
+    return serializedUsers;
+};
