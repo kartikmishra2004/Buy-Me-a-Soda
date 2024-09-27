@@ -4,7 +4,7 @@ import pfp from "@/public/pfp.png"
 import React, { useEffect, useState, useCallback } from 'react'
 import Script from 'next/script'
 import { fetch5payments, fetchpayments, fetchuser, initiate } from '@/actions/useractions'
-// import { useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 
 const Paymentpage = ({ username }) => {
 
-    // const { data: session } = useSession();
+    const { data: session } = useSession();
 
     const [paymentForm, setpaymentForm] = useState({
         name: "",
@@ -124,7 +124,7 @@ const Paymentpage = ({ username }) => {
                 <div className="h-[235vh] absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_60px]">
                     <div className="w-full relative mt-[4.5rem] lg:h-[40vh] h-[20vh] flex justify-center items-center">
                         <Image fill className='object-cover h-[40vh] w-full' src={currentUser.coverPhoto ? currentUser.coverPhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="..." />
-                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' width={150} height={150} src={currentUser.profilePhoto ? currentUser.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1723743051/Picsart_24-08-15_23-00-10-662_bix7iy.png'} alt=''></Image></div>
+                        <div className="pfp absolute w-[150px] h-[150px] flex rounded-full border-2 border-gray-300 -bottom-[75px]"><Image className='rounded-full object-cover' width={150} height={150} src={session.image} alt=''></Image></div>
                     </div>
                     <div className="details w-full flex justify-center items-center flex-col text-center gap-2 pt-14 h-[30vh]">
                         <h1 className='text-xl font-bold'>
