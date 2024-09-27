@@ -29,7 +29,7 @@ const Dashboard = () => {
         let u = await fetchuser(session.user.name);
         setForm(u);
     }, [session]);
-    
+
     useEffect(() => {
         document.title = "Dashboard - Buy Me a Soda";
         if (!session) {
@@ -38,7 +38,7 @@ const Dashboard = () => {
             getData();
         }
     }, [router, session, getData]);
-    
+
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -92,15 +92,12 @@ const Dashboard = () => {
                                 <input autoComplete="off" id='razorpayid' name='razorpayid' value={form.razorpayid} onChange={handleChange} placeholder='Enter your razorpay id' type="text" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
                                 <label htmlFor='razorpaysecret' className="font-semibold mt-3 leading-none text-gray-300">Razorpay secret</label>
                                 <input autoComplete="off" id='razorpaysecret' name='razorpaysecret' value={form.razorpaysecret} onChange={handleChange} placeholder='Enter your razorpay secret' type="text" className="leading-none text-gray-300 p-2.5 mt-2 border-0 bg-gray-800 rounded-lg" />
-
-                                <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="profilephoto">Enter profile photo URL</label>
-                                <input autoComplete="off" name='profilePhoto' value={form.profilePhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="profilephoto" type="text" />
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="coverphoto">Enter cover photo URL</label>
                                 <input autoComplete="off" name='coverPhoto' value={form.coverPhoto} onChange={handleChange} className="leading-none text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="coverphoto" type="text" />
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessTitle">Business title</label>
-                                <input autoComplete="off" name='businessTitle' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessTitle" type="text" placeholder='Enter your business Title'/>
+                                <input autoComplete="off" name='businessTitle' value={form.businessTitle} onChange={handleChange} className="text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessTitle" type="text" placeholder='Enter your business Title' />
                                 <label className="block mb-2 text-sm font-medium mt-3 text-gray-300 dark:text-white" htmlFor="businessAbout">Describe your business</label>
-                                <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessAbout} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)'/>
+                                <textarea maxLength={500} autoComplete="off" name='businessAbout' value={form.businessAbout} onChange={handleChange} className="leading-[23px] resize-none h-[10rem] text-gray-300 p-2.5 border-0 bg-gray-800 rounded-lg" id="businessAbout" type="text" placeholder='Describe your business (not more than 500 characters)' />
                                 <div className="paybtn w-full mt-5">
                                     <button type="submit" className="text-white w-full cursor-pointer bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-8 py-2.5 text-center">Save</button>
                                 </div>
