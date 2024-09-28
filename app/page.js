@@ -50,7 +50,7 @@ export default function Home() {
             <div className="features text-gray-300 w-full flex flex-col lg:flex-row justify-evenly items-center h-[35rem] lg:h-[35rem]">
               <div className="entrepreneurs h-[70vh] lg:w-[60vw] w-[95vw] p-9 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
                 <h2 className="text-2xl my-4 font-semibold">Top Entrepreneurs</h2>
-                <ul className='flex flex-col lg:gap-2 gap-[1rem] w-full items-start'>
+                <ul className='flex flex-col lg:gap-2 gap-[2rem] w-full items-start'>
                   {users.map((item, index) => (
                     <Link href={`/${item.username}`} className="w-full hover:bg-[#1f2937]" key={index}>
                       <div className="max-w-2xl w-full">
