@@ -87,17 +87,17 @@ export default function Home() {
             <h1 className="text-gray-300 pt-10 lg:text-2xl text-lg tracking-wide font-semibold">Your Fans can Buy you a Soda!!</h1>
             <div className="features text-gray-300 w-full flex flex-col lg:flex-row justify-evenly items-center h-[35rem] lg:h-[20rem]">
               <div className="flex flex-col justify-center items-center lg:px-0 px-10 text-center lg:w-[33.33%]">
-                <img className="lg:w-16 w-12 mb-5" src={support} alt="..."></img>
+                <Image className="lg:w-16 w-12 mb-5" src={support} alt="..."></Image>
                 <h1 className="text-lg font-medium">Quick Support</h1>
                 <p className="text-sm font-thin">Contribute in seconds and help bring ideas to life.</p>
               </div>
               <div className="flex flex-col justify-center items-center lg:px-0 px-10 text-center lg:w-[33.33%]">
-                <img className="lg:w-16 w-12 mb-5" src={money} alt="..."></img>
+                <Image className="lg:w-16 w-12 mb-5" src={money} alt="..."></Image>
                 <h1 className="text-lg font-medium">Direct Funding</h1>
                 <p className="text-sm font-thin">Funds go straight to the recipient, hassle-free.</p>
               </div>
               <div className="flex flex-col justify-center items-center lg:px-0 px-10 text-center lg:w-[33.33%]">
-                <img className="lg:w-16 w-12 mb-5" src={share} alt="..."></img>
+                <Image className="lg:w-16 w-12 mb-5" src={share} alt="..."></Image>
                 <h1 className="text-lg font-medium">Easy Sharing</h1>
                 <p className="text-sm font-thin">Spread the word and boost your favorite campaigns.</p>
               </div>
