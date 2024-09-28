@@ -35,7 +35,7 @@ export default function Home() {
             <div className="flex justify-center items-center">
               <h1 className="lg:text-5xl text-3xl font-bold">Buy Me a Soda</h1>
               <span>
-                <img className="lg:w-16 w-12" alt="" src={soda} priority={true}></Image>
+                <img className="lg:w-16 w-12" alt="" src={soda} priority={true}></img>
               </span>
             </div>
             <p className="lg:text-base text-sm text-center lg:text-left">A Crowdfunding Platform Where Every Sip Counts – Help Innovators and Dreamers Turn Their Ideas Into Reality.</p>
