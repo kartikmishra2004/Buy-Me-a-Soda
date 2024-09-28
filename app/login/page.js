@@ -28,7 +28,7 @@ const Login = () => {
                                 <div className="rounded-xl bg-[#111827] shadow-xl">
                                     <div className="lg:p-8 p-4">
                                         <div className="space-y-4 flex flex-col justify-center items-center">
-                                            <img className="lg:w-44 w-40" alt="" src={logo} priority={true}></img>
+                                            <img className="lg:w-44 w-40" alt="" src={logo} priority={true}></Image>
                                             <h2 className="mb-8 text-xl text-center text-gray-300 font-semibold">Wellcome! Signup/Login to Continue.
                                             </h2>
                                         </div>
