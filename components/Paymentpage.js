@@ -135,10 +135,10 @@ const Paymentpage = ({ username }) => {
                             {payments.length} payments | ₹{payments.reduce((a, b) => a + b.amount / 100, 0)} raised
                         </p>
                     </div>
-                    <div className='w-full flex items-center flex-col lg:h-[45vh] h-[55vh]'>
+                    <div className='w-full flex items-center flex-col lg:h-[45vh] h-[60vh]'>
                         <h1 className='lg:text-3xl text-[1.4rem] font-semibold text-gray-300 mb-10'>About Our Business</h1>
                         <h1 className='lg:text-xl text-[1rem] font-semibold text-gray-300'>{currentUser.businessTitle}</h1>
-                        <p className='lg:w-[50vw] w-[85%] leading-[20px] lg:leading-[1.5] text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
+                        <p className='lg:w-[50vw] w-[85%] leading-[20px] lg:leading-none text-center text-gray-400 mt-2'>{currentUser.businessAbout}</p>
                     </div>
                     <div className="payment flex flex-col lg:flex-row justify-center items-center w-full lg:h-[95vh] h-[130vh] gap-5">
                         <div className="supporters h-[85vh] lg:w-[40%] w-[90%] lg:p-9 p-5 flex rounded-lg flex-col items-center overflow-auto bg-[#111827]">
