@@ -82,15 +82,15 @@ const Paymentpage = ({ username }) => {
             "order_id": orderId,
             "callback_url": `${process.env.NEXT_PUBLIC_URL}/api/razorpay`,
             "prefill": {
-                "name": "Gaurav Kumar",
-                "email": "gaurav.kumar@example.com",
-                "contact": "9000090000"
+                "name": "",
+                "email": "",
+                "contact": ""
             },
             "notes": {
                 "address": "Razorpay Corporate Office"
             },
             "theme": {
-                "color": "#3399cc"
+                "color": "#111827"
             }
         };
         var rzp1 = new Razorpay(options)
