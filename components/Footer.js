@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="py-16 flex justify-between items-center flex-col gap-8 lg:flex-row">
                     <a className='flex text-2xl font-bold gap-1 justify-center items-center text-gray-300' href="/">
-                        <img className='w-52' alt='' src={logo}></Image>
+                        <img className='w-52' alt='' src={logo}></img>
                     </a>
                     <ul className="lg:text-sm text-center sm:flex items-cente justify-center gap-14 lg:gap-10 xl:gap-14 transition-all duration-500">
                         <li ><Link href={'/'} className="cursor-pointer text-gray-400 hover:text-gray-50/75 transition">Home</Link></li>
