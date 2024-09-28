@@ -28,7 +28,7 @@ const Login = () => {
                                 <div className="rounded-xl bg-[#111827] shadow-xl">
                                     <div className="lg:p-8 p-4">
                                         <div className="space-y-4 flex flex-col justify-center items-center">
-                                            <Image className="lg:w-44 w-40" alt="" src={logo} priority={true}></Image>
+                                            <img className="lg:w-44 w-40" alt="" src={logo} priority={true}></Image>
                                             <h2 className="mb-8 text-xl text-center text-gray-300 font-semibold">Wellcome! Signup/Login to Continue.
                                             </h2>
                                         </div>
@@ -36,7 +36,7 @@ const Login = () => {
                                             <button
                                                 className="group hidden h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400">
                                                 <div className="relative flex items-center space-x-4 justify-center">
-                                                    <Image priority={true} width={30} height={30} src="https://www.svgrepo.com/show/475656/google-color.svg"
+                                                    <img priority={true} width={30} height={30} src="https://www.svgrepo.com/show/475656/google-color.svg"
                                                         className="absolute left-0 w-5" alt="google logo" />
                                                     <span
                                                         onClick={() => { signIn('google') }}

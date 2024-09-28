@@ -37,7 +37,7 @@ const Navbar = () => {
                     <div className="flex h-[4.5rem] items-center justify-between">
                         <div className="flex-1 lg:flex lg:items-center lg:gap-12">
                             <Link href={'/'} className="flex w-max text-lg font-bold gap-1 text-gray-300">
-                                <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
+                                <img className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
                             </Link>
                         </div>
                         <div className="lg:flex lg:items-center lg:gap-4">
@@ -51,7 +51,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <button onClick={handleDropdown} className={`text-gray-400 gap-2 justify-between flex bg-[#1f2937] font-medium rounded-lg rounded-l-3xl text-sm px-3 pr-5 py-2.5 text-center items-center`}>
-                                            <div className="text-gray-400 transition hover:text-gray-50/75"><span><Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></div>
+                                            <div className="text-gray-400 transition hover:text-gray-50/75"><span><img className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" /></span></div>
                                             <h1 className="pl-2 flex w-full">
                                                 Wellcome @{session.user.name}
                                             </h1>
@@ -78,7 +78,7 @@ const Navbar = () => {
                             <div className="flex items-center gap-4">
                                 <div className="flex justify-center items-center lg:hidden">
                                     <button onClick={() => { setMobilenav(!mobilenav) }} className="">
-                                        <Image className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
+                                        <img className="rounded-full border border-gray-300" width={35} height={35} priority={true} src={session.user.image} alt="pfp" />
                                     </button>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ const Navbar = () => {
                 <div className="flex h-[4.5rem] items-center justify-between">
                     <div className="flex-1 lg:flex lg:items-center lg:gap-12">
                         <Link href={'/'} className="flex w-max text-lg font-bold gap-1 text-gray-300">
-                            <Image className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
+                            <img className="lg:w-36 w-[7rem]" priority={true} src={logo} alt="logo" />
                         </Link>
                     </div>
                     <div className="lg:flex lg:items-center lg:gap-12">
@@ -133,7 +133,7 @@ const Navbar = () => {
                             </div>
                             <div className="block lg:hidden">
                                 <button onClick={() => { setMobilenav(!mobilenav) }} className="rounded p-2 text-gray-600 transition hover:text-gray-600/75">
-                                    <Image className="lg:w-36 w-7" priority={true} src={dots} alt="logo" />
+                                    <img className="lg:w-36 w-7" priority={true} src={dots} alt="logo" />
                                 </button>
                             </div>
                         </div>
