@@ -60,7 +60,7 @@ export default function Home() {
                               <li className="w-full">
                                 <div className="flex items-center space-x-4">
                                   <div className="flex-shrink-0">
-                                    <Image priority width={32} height={32} className="w-8 h-8 rounded-full" src={item.profilePhoto} alt="Neil image" />
+                                    <Image priority width={32} height={32} className="w-8 h-8 rounded-full" src={item.profilePhoto ? item.profilePhoto : 'https://res.cloudinary.com/dlwudcsu1/image/upload/v1727005536/5e29d41549842929195680_aa8nre.jpg'} alt="Neil image" />
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <p className="text-sm font-medium text-gray-300 truncate">
